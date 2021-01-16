@@ -49,7 +49,7 @@ void print_recursive(node* n, char* str, int x){
     }
     if(n->isEndOfWord){
         str[x]='\0';
-        printf("%s\t%ld\n",str, n->count);
+        printf("%s\n%ld\n",str, n->count);
     }
     for(int i=0; i<NUM_LETTERS;i++){
         if(n->children[i] != NULL){
@@ -80,7 +80,7 @@ void print_r_recursive(node* n, char* str, int x){
     }
     if(n->isEndOfWord == TRUE){
         str[x]='\0';
-        printf("%s\t%ld\n",str, n->count);
+        printf("%s\n%ld\n",str, n->count);
     }
     free(n);
 }
