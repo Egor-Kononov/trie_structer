@@ -107,7 +107,7 @@ int main(int argc, char *argv[]){
             i++;
             ch = getc(stdin);
         }
-        if(ch != '\n' && ch != '\t' && ch != ' ' ){
+        if(ch != '\n' && ch != '\t' && ch != ' ' && ch != EOF){
             continue;
         }
         len = strlen(str);
@@ -134,36 +134,3 @@ int main(int argc, char *argv[]){
     }
     return 0;
 }
-
-// int main(int argc,char *argv[]){
-//     char *str = (char*)malloc(sizeof(char));
-//     char ch = getc(stdin);
-//     while (ch != EOF){
-//         ch = tolower(ch);
-//         int i =0;
-//         while(ch <= 122 && ch >=97){
-//             str = realloc(str,sizeof(char)*(i+2));
-//             if(str == NULL){
-//                 exit(1);
-//             }
-//             str[i] = ch;
-//             str[i+1] = '\0';
-//             i++;
-//             ch = getc(stdin);
-//             ch = tolower(ch);
-//         }
-//         int len = strlen(str);
-//         if(len > s){
-//             s= len;
-//         }
-//         if(len < 2){
-//             ch = getc(stdin);
-//         }
-//         printf("%s, %d \n", str, s);
-//         str = (char*)malloc(sizeof(char));
-//     }
-    
-//     free(str);
-    
-//     return 0;
-// }
