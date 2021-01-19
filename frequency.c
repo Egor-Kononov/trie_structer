@@ -35,9 +35,22 @@ short s = 0;
      temp->isEndOfWord = TRUE;
  }
 
+ void triefree(node *current){
+    for (int i = 0; i < NUM_LETTERS; i++)
+    {
+        if (current->children[i] != NULL)
+        {
+            triefree(current->children[i]);
+        }
+    }
+    free(current);
+}
+
+
 void print(node* head, short size){
     char *st = (char*)malloc(sizeof(char)*(size));
     if(st == NULL){
+        triefree(head);
         exit(1);
     }
     print_recursive(head,st,0);
@@ -45,7 +58,7 @@ void print(node* head, short size){
 
 void print_recursive(node* n, char* str, int x){
     if(n == NULL){
-        exit(1);
+        return;
     }
     if(n->isEndOfWord){
         str[x]='\0';
@@ -63,6 +76,7 @@ void print_recursive(node* n, char* str, int x){
 void print_r(node* head, short size){
     char *st = (char*)malloc(sizeof(char)*(size));
     if(st == NULL){
+        triefree(head);
         exit(1);
     }
     print_r_recursive(head,st,0);
@@ -99,6 +113,7 @@ int main(int argc, char *argv[]){
         while((ch <= 122 && ch >=97) || (ch >= 65 && ch <= 90)){
             str = realloc(str,sizeof(char)*(i+2));
             if(str == NULL){
+                triefree(t);
                 exit(1);
             }
             result = tolower(ch);

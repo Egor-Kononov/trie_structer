@@ -14,6 +14,7 @@ typedef struct node{
 
 node* create_node(char ch);
 void insert(node* r, char* str);
+void triefree(node *current);
 void print(node* head, short size);
 void print_r(node* head, short size);
 void print_recursive(node* node, char* str, int x);
